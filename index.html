@@ -1,438 +1,202 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="00p.png" />
-  <title>Work permit verification</title>
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" />
+  <title>Premium Jobs USA</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #2193b0);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 80px; /* Navbar height buffer */
     }
 
-    @keyframes gradientBG {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff0000);
+      background-size: 800% 800%;
+      animation: backgroundShift 20s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes backgroundShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .marquee-wrapper {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-
-.marquee-text {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scrollText 25s linear infinite;
-}
-
-@keyframes scrollText {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-
-
-
-.floating-image {
-  width: 250px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 999;
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid transparent;
-      border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1;
-      animation: border-fade 5s linear infinite;
-    }
-
-    @keyframes border-fade {
-      0% { border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1; }
-      50% { border-image: linear-gradient(to right, #2193b0, #6dd5ed, #fdbb2d) 1; }
-      100% { border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1; }
-    }
-
-    .nav-logo {
-      font-size: 1.7rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-    }
-#changing-text {
-  font-weight: bold;
-  transition: opacity 0.5s ease-in-out;
-}
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.3s, transform 0.3s;
+    header {
       position: relative;
     }
 
-    .nav-links li a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      height: 2px;
+    header img {
       width: 100%;
-      background: white;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
+      height: auto;
+      display: block;
     }
 
-    .nav-links li a:hover {
-      color: #fdbb2d;
-      transform: scale(1.1);
+    .rating-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+      animation: pulse 2s infinite;
     }
 
-    .nav-links li a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+      50% { box-shadow: 0 0 20px rgba(255, 204, 0, 1); }
+      100% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
     }
 
-    /* ---------- NAVBAR STYLE END ---------- */
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    .highlight {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      backdrop-filter: blur(5px);
     }
 
-    .flags {
+    .jobs {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      padding: 2rem;
+      gap: 2rem;
     }
 
-    .flag {
+    .job-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      max-width: 320px;
+      flex: 1;
+      transition: transform 0.3s ease, background 1s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .job-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .job-card h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    .job-card p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(45deg, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));
+      background-size: 600% 600%;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      animation: rgbShift 5s ease infinite;
+      border: none;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-radius: 12px;
-      overflow: hidden;
     }
 
-    .flag:hover {
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    @keyframes rgbShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .flag img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 3px solid white;
-      transition: opacity 0.3s ease-in-out;
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      margin-top: 2rem;
     }
-
-    .flag img:hover {
-      opacity: 0.9;
-    }
-   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .flags {
-    animation: fadeIn 1s ease forwards;
-  }
-
-  
-
-  
   </style>
 </head>
 <body>
 
+  <header>
+    <img src="https://i.im.ge/2025/10/23/nZHmmP.USA-Jobs-Employment-2.gif" alt="Premium HOME Jobs Banner" />
+    <div class="rating-badge">⭐ 4.9/5 Rating</div>
+  </header>
 
-  <nav class="navbar">
-     <div class="nav-logo">
-    <i class="fas fa-globe"></i>
-    <span id="changing-text">Verify Your Offer Letter</span></div>
-    <ul class="nav-links">
-      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="Countries.html"><i class="fas fa-flag"></i> Countries</a></li>
-      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-    </ul>
-  </nav>
-
-
-<div class="marquee-wrapper">
-  <div class="marquee-text"><h3><b>You can check your offer letter here. You are doing everything yourself.</h3></div>
-</div>
-
-<div class="container">
-    <img src="MP.png" alt="Floating Image" class="floating-image" />
-
-
-
-<h1><b>SELECT THE COUNTRY WHOSE OFFER LETTER YOU WANT TO VERIFY.</b></h1>
-
-
-
- 
-  <div class="flags">
-     <div class="flag" onclick="location.href='usa.html'">
-    <img src="3.png" alt="USA Flag" />
+  <div class="highlight">
+    🎯 USA jobs available - Apply to USA jobs today
   </div>
 
-  <div class="flag" onclick="location.href='can.html'">
-    <img src="2.jpeg" alt="Canada Flag" />
-  </div>
+  <section class="jobs">
+    <div class="job-card">
+      <img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/CM/VA/QA/161597530/product-jpeg-500x500.jpg" alt="Housekeeping Job">
+      <h3>Housekeeping Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
-  <div class="flag" onclick="location.href='cyprus.html'">
-    <img src="cy.png" alt="cy Flag" />
-  </div>
+    <div class="job-card">
+      <img src="https://www.oie.es/wp-content/uploads/2022/06/trabajar-en-supermercados-aldi.jpg" alt="Social Media Job">
+      <h3>Apply to ALDI jobs today</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
-  <div class="flag" onclick="location.href='grm.html'">
-    <img src="7.png" alt="germany Flag" />
-  </div>
+    <div class="job-card">
+      <img src="https://i.ytimg.com/vi/1Oi_2La6PCM/maxresdefault.jpg" alt="FedEx Remote Job">
+      <h3>FedEx -2 Remote Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
-  <div class="flag" onclick="location.href='RUSSIA.html'">
-    <img src="R4.png" alt="RUSS Flag" />
-  </div>
-  
-  <div class="flag" onclick="location.href='australia.html'">
-    <img src="1.png" alt="Australia Flag" />
-  </div>
+    <div class="job-card">
+      <img src="https://www.bloggingmile.com/wp-content/uploads/2020/06/best-work-from-home-jobs.jpg" alt="Data Entry Job">
+      <h3> Work From Home Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>pay</strong> $18–$50/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
-  <div class="flag" onclick="location.href='portugal.html'">
-    <img src="8.png" alt="Portugal Flag" />
-  </div>
+    <div class="job-card">
+      <img src="https://images.careerindia.com/img/2023/06/jobs-at-airport-1-1686570149.jpg" alt="Customer Support Job">
+      <h3>Highly Paid Jobs at Airports</h3>
+      <p><strong></strong> </p>
+      <p><strong>Pay:</strong> $150–$300/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+  </section>
 
-  <div class="flag" onclick="location.href='SPN.html'">
-    <img src="s2.png" alt="SPAIN Flag" />
-  </div>
-
-
-<div class="flag" onclick="location.href='sarvia.html'">
-    <img src="17.png" alt="Serbia Flag" />
-  </div>
-
-  <div class="flag" onclick="location.href='esto.html'">
-    <img src="14.png" alt="UK Flag (Variant 4)" />
-  </div>
-
- <div class="flag" onclick="location.href='Azerbaijan.html'">
-    <img src="AZAR.png" alt="AZAR" />
-  </div>
-
-    
-  <div class="flag" onclick="location.href='NEW ZEALAND.html'">
-    <img src="NE3.png" alt="NEW ZEALAND Flag" />
-  </div>
-
-
-
-  <div class="flag" onclick="location.href='greece.html'">
-    <img src="16.png" alt="Greece Flag" />
-  </div>
-  
-
-  <div class="flag" onclick="location.href='austria.html'">
-    <img src="18.png" alt="Austria Flag" />
-  </div>
-
-  <div class="flag" onclick="location.href='albenia.html'">
-    <img src="21.png" alt="Albania Flag" />
-  </div>
-
-  <div class="flag" onclick="location.href='fra.html'">
-    <img src="82.png" alt="france Flag" />
-  </div>
-
-   <div class="flag" onclick="location.href='HUN.html'">
-    <img src="87.png" alt="HUNFlag" />
-  </div>
-
- <div class="flag" onclick="location.href='FINLAND.html'">
-    <img src="FINLAND.png" alt="FINFlag" />
-  </div>
-
-
-      <div class="flag" onclick="location.href='SWITZERLAND.html'">
-    <img src="SWIT.png" alt="SWITZERLAND Flag" />
-  </div>
-
-    
-  <div class="flag" onclick="location.href='crotia.html'">
-    <img src="91.png" alt="Croatia Flag" />
-  </div>
-
-  <div class="flag" onclick="location.href='Denmark.html'">
-    <img src="dn.png" alt="Denmark Flag" />
-  </div>   
-
-  <div class="flag" onclick="location.href='POLSKA.html'">
-    <img src="P4.png" alt="POLSKA Flag" />
-  </div>
-
-   <div class="flag" onclick="location.href='NORWAY.html'">
-    <img src="NOR6.png" alt="NORFlag" />
-  </div>   
-
-
-   <div class="flag" onclick="location.href='KOSOVO.html'">
-    <img src="KOSOVO.png" alt="KOS
-      Flag" />
-  </div>
-
-
-  
-   <div class="flag" onclick="location.href='BELARUS.html'">
-    <img src="BL.png" alt="BELAFlag" />
-  </div>
-
- <div class="flag" onclick="location.href='IRELAND.html'">
-    <img src="1W.png" alt="IREFlag" />
-  </div>
-
-   <div class="flag" onclick="location.href='morocco.html'">
-    <img src="m1.png" alt="MOROCCO Flag" />
-  </div>
-
-
-      <div class="flag" onclick="location.href='bosnia.html'">
-    <img src="BOSNIA.png" alt="bosnia Flag" />
-  </div>
-
-
- <div class="flag" onclick="location.href='FIJI.html'">
-    <img src="FIJI.png" alt="FIJI Flag " />
-  </div>
-  
-    <div class="flag" onclick="location.href='Netherland.html'">
-    <img src="Flag_of_the_Netherlands.png" alt="NetherlandFlag" />
-  </div>
-
-  <div class="flag" onclick="location.href='LITHUNIA.html'">
-    <img src="LITHUNIA FLAG.png" alt="LITHUNIA FLAG" />
-  </div>
-    
-
-  <div class="flag" onclick="location.href='lux.html'">
-    <img src="69.png" alt="Luxembourg Flag" />
-  </div>
-
-  <div class="flag" onclick="location.href='MALTA.html'">
-    <img src="M3.png" alt="MALTA Flag" />
-  </div>
-
-
-  
-  <div class="flag" onclick="location.href='latvia.html'">
-    <img src="lt.png" alt="latviya Flag" />
-  </div>
-
-   <div class="flag" onclick="location.href='Romania.html'">
-    <img src="ro.png" alt="roFlag" />
-  </div>
-          <div class="flag" onclick="location.href='BULGERIA.html'">
-    <img src="BU5.png" alt="BULFlag" />
-  </div>
-  </div>
+  <footer>
+    &copy; 2025 Premium HOME Jobs USA. All rights reserved.
+  </footer>
 
 </body>
-<script>
-const texts = [
-    "Verify Your Offer Letter",
-    "",
-    "تحقق من خطاب العرض الخاص بك",
-    "Verifica tu carta de oferta",
-    "Verifiziere deinen Angebotsbrief",
-    "Lettre d'offre de vérification"
-  ];
-
-  let index = 0;
-  const textElement = document.getElementById("changing-text");
-
-  setInterval(() => {
-    textElement.style.opacity = 0; // fade out
-
-    setTimeout(() => {
-      index = (index + 1) % texts.length;
-      textElement.textContent = texts[index];
-      textElement.style.opacity = 1; // fade in
-    }, 500);
-  }, 4000); 
-
-
-
-  window.onscroll = function() {
-    const navbar = document.querySelector('.navbar');
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      navbar.style.transform = "translateY(-10px)";
-      navbar.style.transition = "transform 0.3s ease";
-    } else {
-      navbar.style.transform = "translateY(0)";
-    }
-  };
-
-
-
-
-</script>
 </html>
-
-  
-
-
-
-
-
-
-
