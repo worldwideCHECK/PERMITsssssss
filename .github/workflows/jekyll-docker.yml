@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Jobs USA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff0000);
+      background-size: 800% 800%;
+      animation: backgroundShift 20s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      position: relative;
+    }
+
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+      50% { box-shadow: 0 0 20px rgba(255, 204, 0, 1); }
+      100% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+    }
+
+    .highlight {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .jobs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .job-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      max-width: 320px;
+      flex: 1;
+      transition: transform 0.3s ease, background 1s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .job-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .job-card h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    .job-card p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(45deg, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));
+      background-size: 600% 600%;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      animation: rgbShift 5s ease infinite;
+      border: none;
+      cursor: pointer;
+    }
+
+    @keyframes rgbShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.im.ge/2025/10/23/nZHmmP.USA-Jobs-Employment-2.gif" alt="Premium HOME Jobs Banner" />
+    <div class="rating-badge">⭐ 4.9/5 Rating</div>
+  </header>
+
+  <div class="highlight">
+    🎯 USA jobs available - Apply to USA jobs today
+  </div>
+
+  <section class="jobs">
+    <div class="job-card">
+      <img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/CM/VA/QA/161597530/product-jpeg-500x500.jpg" alt="Housekeeping Job">
+      <h3>Housekeeping Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <img src="https://www.oie.es/wp-content/uploads/2022/06/trabajar-en-supermercados-aldi.jpg" alt="Social Media Job">
+      <h3>Apply to ALDI jobs today</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <img src="https://i.ytimg.com/vi/1Oi_2La6PCM/maxresdefault.jpg" alt="FedEx Remote Job">
+      <h3>FedEx -2 Remote Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <img src="https://www.bloggingmile.com/wp-content/uploads/2020/06/best-work-from-home-jobs.jpg" alt="Data Entry Job">
+      <h3> Work From Home Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>pay</strong> $18–$50/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+
+    <div class="job-card">
+      <img src="https://images.careerindia.com/img/2023/06/jobs-at-airport-1-1686570149.jpg" alt="Customer Support Job">
+      <h3>Highly Paid Jobs at Airports</h3>
+      <p><strong></strong> </p>
+      <p><strong>Pay:</strong> $150–$300/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Premium HOME Jobs USA. All rights reserved.
+  </footer>
+
+</body>
+</html>
