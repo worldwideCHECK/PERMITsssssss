@@ -1,212 +1,202 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="00p.png" />
-  <title>Work permit verification</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Premium Jobs USA</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #2193b0);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 80px; /* Navbar height buffer */
     }
 
-    @keyframes gradientBG {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff0000);
+      background-size: 800% 800%;
+      animation: backgroundShift 20s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes backgroundShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* ---------- NAVBAR STYLE START ---------- */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 999;
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid transparent;
-      border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1;
-      animation: border-fade 5s linear infinite;
-    }
-
-    @keyframes border-fade {
-      0% { border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1; }
-      50% { border-image: linear-gradient(to right, #2193b0, #6dd5ed, #fdbb2d) 1; }
-      100% { border-image: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c) 1; }
-    }
-
-    .nav-logo {
-      font-size: 1.7rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.3s, transform 0.3s;
+    header {
       position: relative;
     }
 
-    .nav-links li a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      height: 2px;
+    header img {
       width: 100%;
-      background: white;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
+      height: auto;
+      display: block;
     }
 
-    .nav-links li a:hover {
-      color: #fdbb2d;
-      transform: scale(1.1);
+    .rating-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+      animation: pulse 2s infinite;
     }
 
-    .nav-links li a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+      50% { box-shadow: 0 0 20px rgba(255, 204, 0, 1); }
+      100% { box-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
     }
 
-    /* ---------- NAVBAR STYLE END ---------- */
-    @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    .contact {
-      margin-top: 40px;
-      padding: 20px;
+    .highlight {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .jobs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .job-card {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      max-width: 320px;
+      flex: 1;
+      transition: transform 0.3s ease, background 1s ease;
+      backdrop-filter: blur(10px);
     }
-    .contact h2 {
-      margin-bottom: 15px;
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
     }
-    .contact p {
-      margin: 5px 0;
-      }
-      .image-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px; 
-      padding: 20px;
-      </style>
-      </head>
-      <body>
 
-  
-  <nav class="navbar">
-    <div class="nav-logo"><i class="fas fa-globe"></i> Verify Your Offer Letter </div>
-    <ul class="nav-links">
-      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="Countries.html"><i class="fas fa-flag"></i> Countries</a></li>
-      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-    </ul>
-  </nav>
-  <br>
- <img src="AUS.png" width="80px" >
-<h1>About Us</h1>
-  <div class="content">
-    <p>We are an innovative organization that provides a simple and effective platform for work permit verification. Our goal is to create a safe and reliable environment for users, enabling them to easily access information related to their work permits.</p>
-    
-    <p>Our team has deep knowledge of work permit processes in various countries, and we are continuously working to improve the quality of our services.</p>
-  </div>
-  <div class="contact">
-    <h2>Contact Us</h2>
-    <p>For any questions or cooperation, please contact us:</p>
-    <p>Email: info@thestandardperth.com.au</p>
-    <p>Phone: +61899425882</p>
-  </div>
- 
-<br>
-  <img src="por.png" width="80px"  >
-<h1>Sobre Nós</h1>
-  <div class="content">
-    <p>Somos uma organização inovadora que oferece uma plataforma simples e eficaz para a verificação de permissões de trabalho. Nosso objetivo é criar um ambiente seguro e confiável para os usuários, permitindo que eles acessem facilmente informações relacionadas às suas permissões de trabalho.</p>
-    
-    <p>Nossa equipe possui profundo conhecimento dos processos de permissões de trabalho em vários países e estamos continuamente trabalhando para melhorar a qualidade dos nossos serviços.</p>
-  </div>
-  <div class="contact">
-    <h2>Contato</h2>
-    <p>Para quaisquer perguntas ou cooperação, por favor, entre em contato conosco:</p>
-    <p>Email:mail@omarinheiro.com</p>
-    <p>Telefone: +351289592350</p>
-  </div>
+    .job-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
 
-<br>
-<div class="image-row">
-    <img src="germ.png" width="80px" alt="Image 1">
-    <img src="autr.jpeg" width="80px" alt="Image 2">
-    <img src="lui.png" width="80px" alt="Image 3">
-    <img src="lu.png" width="80px" alt="Image 4">
-  </div>
-<h1>Über Uns</h1>
-  <div class="content">
-    <p>Wir sind eine innovative Organisation, die eine einfache und effektive Plattform zur Überprüfung von Arbeitserlaubnissen bereitstellt. Unser Ziel ist es, eine sichere und zuverlässige Umgebung für die Nutzer zu schaffen, in der sie leicht auf Informationen zu ihren Arbeitserlaubnissen zugreifen können.</p>
-    
-    <p>Unser Team verfügt über tiefgehendes Wissen über die Prozesse von Arbeitserlaubnissen in verschiedenen Ländern und wir arbeiten kontinuierlich daran, die Qualität unserer Dienstleistungen zu verbessern.</p>
-  </div>
-  <div class="contact">
-    <h2>Kontakt</h2>
-    <p>Für Fragen oder Kooperationen kontaktieren Sie uns bitte:</p>
-    <p>E-Mail:</p>
-    <p>Telefon: </p>
+    .job-card h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    .job-card p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(45deg, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));
+      background-size: 600% 600%;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      animation: rgbShift 5s ease infinite;
+      border: none;
+      cursor: pointer;
+    }
+
+    @keyframes rgbShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.im.ge/2025/10/23/nZHmmP.USA-Jobs-Employment-2.gif" alt="Premium HOME Jobs Banner" />
+    <div class="rating-badge">⭐ 4.9/5 Rating</div>
+  </header>
+
+  <div class="highlight">
+    🎯 USA jobs available - Apply to USA jobs today
   </div>
 
+  <section class="jobs">
+    <div class="job-card">
+      <img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/CM/VA/QA/161597530/product-jpeg-500x500.jpg" alt="Housekeeping Job">
+      <h3>Housekeeping Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
+    <div class="job-card">
+      <img src="https://www.oie.es/wp-content/uploads/2022/06/trabajar-en-supermercados-aldi.jpg" alt="Social Media Job">
+      <h3>Apply to ALDI jobs today</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
+    <div class="job-card">
+      <img src="https://i.ytimg.com/vi/1Oi_2La6PCM/maxresdefault.jpg" alt="FedEx Remote Job">
+      <h3>FedEx -2 Remote Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>Pay:</strong> $15–$45/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
+    <div class="job-card">
+      <img src="https://www.bloggingmile.com/wp-content/uploads/2020/06/best-work-from-home-jobs.jpg" alt="Data Entry Job">
+      <h3> Work From Home Jobs</h3>
+      <p><strong></strong></p>
+      <p><strong>pay</strong> $18–$50/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
 
- 
+    <div class="job-card">
+      <img src="https://images.careerindia.com/img/2023/06/jobs-at-airport-1-1686570149.jpg" alt="Customer Support Job">
+      <h3>Highly Paid Jobs at Airports</h3>
+      <p><strong></strong> </p>
+      <p><strong>Pay:</strong> $150–$300/hr</p>
+      <p></p>
+      <a href="https://www.youtube.com/@sobtune" class="apply-btn" target="">Apply Now</a>
+    </div>
+  </section>
 
+  <footer>
+    &copy; 2025 Premium HOME Jobs USA. All rights reserved.
+  </footer>
 
-
-
-
-
-
-
-
-  </body>
+</body>
 </html>
